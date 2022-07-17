@@ -66,15 +66,12 @@ public class Json吞吐量 {
     @Benchmark
     public Object jsonTools(BenchmarkState state) {
         return new SupalleJsonParser2(state.json).parseObject();
-//        IntList intList = new SupalleJsonParser(state.json).scan();
-//        int[] elements = intList.getElements();
-//        int length = elements.length;
-//        for (int i = 0; i < length; i++) {
-//            intList.getElements();
-//        }
-//        return intList;
     }
-//
+    @Benchmark
+    public Object LittleJsonParser(BenchmarkState state) {
+        return new LittleJsonParser(state.json).parse();
+    }
+
     @Benchmark
     public Object fastjson2ToMap(BenchmarkState state) {
         return com.alibaba.fastjson2.JSON.parseArray(state.json);
